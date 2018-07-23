@@ -1,4 +1,4 @@
-/**
+/*
  * Author: Michael Sommer
  * Description:
  * This file demonstrates the basic functionality 
@@ -16,7 +16,7 @@ let count = 0;
 ////////////////////////////////////////////////////////////////
 ////////////////            Listeners          /////////////////
 ////////////////////////////////////////////////////////////////
-/**
+/*
  * Ordinary function listener.
  * When ordinary listenter function is called,
  * the standard 'this' keyword is set to reference
@@ -31,7 +31,7 @@ myEmitter.on('event1', function () {
   // _maxListeners: undefined }
 });
 
-/**
+/*
  * ES6 arrow function listener.
  * When arrow function is the listener, 
  * 'this' keyword will no longer be referenced by EventEmitter instance.
@@ -41,7 +41,7 @@ myEmitter.on('event1', () => {
   // Output: event1, arrow function listenter this: {}
 });
 
-/**
+/*
  * once() registers a listener that is called at most 
  * once for a particular event.
  * Upon emitted event, the listener is unregistered,
@@ -51,7 +51,7 @@ myEmitter.once('eventOnce', () => {
   console.log('\'eventOnce\' event emitted, once() listener', 'count:', ++count);
 });
 
-/**
+/*
  * error listener.  
  * Handles error from event emitters.
  * error listeners should always be added.
@@ -71,7 +71,7 @@ myEmitter.emit('eventOnce');
 // This is not listened to.
 myEmitter.emit('eventOnce');
 
-/**
+/*
  * Emit an error
  * If no listener for 'error' event, the error is thrown, 
  * a stack trace is printed, and the Node.js process exits.
