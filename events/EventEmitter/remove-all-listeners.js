@@ -27,7 +27,6 @@ const callbackC = () => {
  eventEmitter.on('event', callbackB);
  eventEmitter.on('event', callbackC);
 
-
 //  output:
 //  [ [Function: callbackA],
 //   [Function: callbackB],
