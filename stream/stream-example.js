@@ -1,8 +1,8 @@
 const http = require('http');
 
+// req is an http.IncomingMessage, which is a Readable Stream
+// res is an http.ServerResponse, which is a Writable Stream
 const server = http.createServer((req, res) => {
-  // req is an http.IncomingMessage, which is a Readable Stream
-  // res is an http.ServerResponse, which is a Writable Stream
 
   let body = '';
   // Get the data as utf8 strings.
@@ -17,7 +17,7 @@ const server = http.createServer((req, res) => {
   // the 'end' event indicates that the entire body has been received
   req.on('end', () => {
     try {
-      const data = JSON.parse(body); 
+      const data = JSON.parse(body);
       // write back something interesting to the user:
       res.write(typeof data + '\n');
       res.end();
