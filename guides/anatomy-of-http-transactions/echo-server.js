@@ -5,7 +5,6 @@ const server = http.createServer((request, response) => {
   request.on('data', (chunks) => {
     body.push(chunks);
   }).on('end', () => {
-    response.end(Buffer.concat(body).toString());
+    response.end(Buffer.concat(body).toString() + '\n');
   });
-
 }).listen(8080);
