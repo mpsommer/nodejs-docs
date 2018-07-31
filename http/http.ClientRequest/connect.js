@@ -12,23 +12,25 @@ const proxy = http.createServer((req, res) => {
 proxy.on('connect', (req, cltSocket, head) => {
   // connect to an origin server
   const srvUrl = url.parse(`http://${req.url}`);
-  console.log(`req.url: ${req.url}`);
-  console.log(`req.headers: ${req.rawHeaders}`);
-  console.log(`req.method: ${req.method}`);
-  console.log(`req.socket: ${req.socket}`);
+  console.log(`Connected to localhost`);
+
+  console.log(`Connecting to ${srvUrl.hostname}:${srvUrl.port}`);
   const srvSocket = net.connect(srvUrl.port, srvUrl.hostname, () => {
-    console.log(`srvUrl: ${srvUrl.port} ${srvUrl.hostname}`);
+
     cltSocket.write('HTTP/1.1 200 Connection Established\r\n' +
       'Proxy-agent: Node.js-Proxy\r\n' +
       '\r\n');
     srvSocket.write(head);
+    // Piping data from google to client
     srvSocket.pipe(cltSocket);
     cltSocket.pipe(srvSocket);
   });
 });
 
 // now that proxy is running
+
 proxy.listen(1337, '127.0.0.1', () => {
+  console.log(`Entry point.`);
 
   // make a request to a tunneling proxy
   const options = {
@@ -38,14 +40,13 @@ proxy.listen(1337, '127.0.0.1', () => {
     path: 'www.google.com:80'
   };
 
+  // Send request to localhost
   const req = http.request(options);
   req.end();
 
   req.on('connect', (res, socket, head) => {
-    console.log('got connected!');
-    console.log(`res: ${res.rawHeaders}`);
-    console.log(`socket: ${socket.readable}`);
-    console.log(`head ${head}`);
+    console.log('Connection response received.');
+    
 
     // make a request over an HTTP tunnel
     socket.write('GET / HTTP/1.1\r\n' +
