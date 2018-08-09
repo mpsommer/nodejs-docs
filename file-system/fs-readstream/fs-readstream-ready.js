@@ -1,5 +1,7 @@
 const fs = require('fs');
 
+// Cannot get the 'ready' event to print 
+
 let readStream = fs.createReadStream('test.txt');
 
 readStream.on('open', (fd) => {
