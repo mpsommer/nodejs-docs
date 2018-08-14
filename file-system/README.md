@@ -17,5 +17,6 @@ standard POSIX functions.
 
 [fs-read](https://nodejs.org/dist/latest-v10.x/docs/api/fs.html#fs_fs_read_fd_buffer_offset_length_position_callback)
 
-Next
 [fs-stat](https://nodejs.org/dist/latest-v10.x/docs/api/fs.html#fs_fs_stat_path_options_callback)
+
+[fs-write](https://nodejs.org/dist/latest-v10.x/docs/api/fs.html#fs_fs_write_fd_buffer_offset_length_position_callback)
