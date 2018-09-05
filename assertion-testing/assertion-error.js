@@ -1,7 +1,8 @@
 const assert = require('assert');
 
 'use strict';
-// Generate an AssertionError to compare the error message later:// Generate an AssertionError to comp 
+// Generate an AssertionError to compare the error message later:
+
 const {
 	message
 } = new assert.AssertionError({
