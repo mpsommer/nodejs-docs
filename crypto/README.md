@@ -1,0 +1,1 @@
+[docs](https://nodejs.org/dist/latest-v10.x/docs/api/crypto.html#crypto_determining_if_crypto_support_is_unavailable)
