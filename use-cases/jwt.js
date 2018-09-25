@@ -3,6 +3,8 @@ const fs = require('fs-extra');
 const crypto = require('crypto');
 // jwt = require('jsonwebtoken');
 
+// https://github.com/brianloveswords/node-jws/blob/master/lib/sign-stream.js
+// https://github.com/brianloveswords/node-jwa/blob/master/index.js
 // https://github.com/hokaccha/node-jwt-simple/blob/master/lib/jwt.js
 // https://github.com/hokaccha/node-jwt-simple
 // https://jwt.io/introduction/
